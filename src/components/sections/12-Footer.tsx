@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { siteContent } from "@/content/site";
 import { Button } from "@/components/ui/Button";
 import { Highlighter } from "@/components/ui/Highlighter";
@@ -67,8 +68,14 @@ export function Footer() {
           {/* Brand & Address (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-[8px] bg-highlighter text-ink flex items-center justify-center font-heading font-extrabold text-xl border-2 border-surface">
-                L
+              <div className="w-10 h-10 rounded-[8px] bg-surface overflow-hidden flex items-center justify-center border-2 border-surface shadow-paper-sm">
+                <Image
+                  src="/logo.png"
+                  alt="Lakshya Academy Logo"
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-contain p-0.5"
+                />
               </div>
               <span className="font-heading font-extrabold text-xl tracking-tight text-surface">
                 LAKSHYA <span className="text-redpen">ACADEMY</span>

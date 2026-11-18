@@ -28,6 +28,10 @@ export const metadata: Metadata = {
   title: "Lakshya Academy Kanpur | Serious JEE, NEET & Foundation Classroom Coaching",
   description:
     "Offline coaching in Kakadeo, Kanpur for Class 9-10 Foundation, Class 11-12 PCM/PCB, JEE Main & Advanced, and NEET. Max 40-student batches with daily doubt clearing.",
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
   keywords: [
     "Lakshya Academy",
     "Kanpur coaching",
