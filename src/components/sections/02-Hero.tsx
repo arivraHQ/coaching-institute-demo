@@ -48,7 +48,7 @@ export function Hero() {
   );
 
   return (
-    <section className="relative w-full pt-8 pb-16 sm:pt-14 sm:pb-24 border-b-2 border-ink overflow-hidden">
+    <section id="demo" className="relative w-full pt-8 pb-16 sm:pt-14 sm:pb-24 border-b-2 border-ink overflow-hidden">
       {/* Background notebook margin line on left (desktop) */}
       <div
         className="hidden xl:block absolute left-12 top-0 bottom-0 w-[2px] bg-redpen/20 pointer-events-none"

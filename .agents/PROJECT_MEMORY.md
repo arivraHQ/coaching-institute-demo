@@ -31,4 +31,16 @@
      - *Issue 1*: Initial `-z-10` on highlighter swipe pushed it behind section background without CSS isolation. Fixed by adding `isolate` and `z-0` on container and `z-10` on text.
      - *Issue 2*: Mobile card height clipping on photo placeholder box. Fixed with `aspect-auto sm:aspect-[16/9] min-h-[220px]`.
      - *Issue 3*: Next.js dev indicator badge in viewport. Disabled via `devIndicators: false` in `next.config.ts`.
-   - **Current Status**: Awaiting user review & approval on Navbar + Hero before proceeding to remaining sections.
+6. **Milestone 2 — Full 12-Section Architecture & Comprehensive QA**:
+   - Built all 12 sections with unique non-uniform layouts.
+   - Added vector SVG score trend progression curve and chapter-wise concept mastery bars in Section 07.
+   - Connected interactive Course filters (Class 9, 10, 11, 12, Dropper & Exam targets).
+   - Verified scholarship WhatsApp form prefill.
+   - Verified FAQ accessible accordion toggles.
+   - Conducted Core Web Vitals & Accessibility audit:
+     - LCP: 1.38s (< 2.0s threshold)
+     - FCP: 1.38s
+     - DOM Content Loaded: 950ms
+     - Images without alt: 0
+     - Console Errors: 0
+     - 8/8 Playwright tests passing with Exit Code 0 across Desktop and Mobile viewports.
