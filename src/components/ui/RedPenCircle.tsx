@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface RedPenCircleProps {
@@ -11,8 +11,6 @@ interface RedPenCircleProps {
 }
 
 export function RedPenCircle({ children, className, variant = "circle" }: RedPenCircleProps) {
-  const prefersReduced = useReducedMotion();
-
   return (
     <span className={cn("relative inline-block", className)}>
       <span className="relative z-10">{children}</span>
@@ -31,7 +29,7 @@ export function RedPenCircle({ children, className, variant = "circle" }: RedPen
             strokeWidth="2.4"
             strokeLinecap="round"
             strokeLinejoin="round"
-            initial={prefersReduced ? { pathLength: 1 } : { pathLength: 0 }}
+            initial={{ pathLength: 0 }}
             whileInView={{ pathLength: 1 }}
             viewport={{ once: true }}
             transition={{
@@ -56,7 +54,7 @@ export function RedPenCircle({ children, className, variant = "circle" }: RedPen
             stroke="#E5383B"
             strokeWidth="2.5"
             strokeLinecap="round"
-            initial={prefersReduced ? { pathLength: 1 } : { pathLength: 0 }}
+            initial={{ pathLength: 0 }}
             whileInView={{ pathLength: 1 }}
             viewport={{ once: true }}
             transition={{

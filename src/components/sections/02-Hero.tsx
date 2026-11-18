@@ -9,18 +9,23 @@ import { MarginNote } from "@/components/ui/MarginNote";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { buildWhatsAppUrl } from "@/lib/utils";
 import { CheckCircle2, ArrowRight, ShieldCheck, MapPin } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
 
 export function Hero() {
   const { hero, contact } = siteContent;
-  const prefersReduced = useReducedMotion();
 
-  // Animated counter simulation for 94% and 38
-  const [metric94, setMetric94] = useState(prefersReduced ? 94 : 0);
-  const [metric38, setMetric38] = useState(prefersReduced ? 38 : 0);
+  // Fixed initial value for SSR to prevent hydration mismatch
+  const [metric94, setMetric94] = useState(94);
+  const [metric38, setMetric38] = useState(38);
 
   useEffect(() => {
-    if (prefersReduced) return;
+    // Check matchMedia for reduced motion in client effect
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mediaQuery.matches) return;
+
+    // Reset to 0 and animate count up
+    setMetric94(0);
+    setMetric38(0);
+
     const duration = 1200;
     const frameRate = 1000 / 60;
     const totalFrames = Math.round(duration / frameRate);
@@ -29,7 +34,6 @@ export function Hero() {
     const timer = setInterval(() => {
       frame++;
       const progress = frame / totalFrames;
-      // easeOutExpo
       const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
       setMetric94(Math.min(94, Math.round(ease * 94)));
       setMetric38(Math.min(38, Math.round(ease * 38)));
@@ -40,7 +44,7 @@ export function Hero() {
     }, frameRate);
 
     return () => clearInterval(timer);
-  }, [prefersReduced]);
+  }, []);
 
   const demoWhatsAppUrl = buildWhatsAppUrl(
     contact.whatsappNumber,
@@ -128,7 +132,7 @@ export function Hero() {
                 Atmosphere: Deep concentration, authentic, non-corporate, zero thumbs-up stock smiles.
               */}
               <ImagePlaceholder
-                aspectRatio="aspect-[16/9]"
+                aspectRatio="aspect-auto sm:aspect-[16/9]"
                 stamp="CAMPUS REALITY • KAKADEO"
                 brief="Senior IIT alumnus faculty solving a 3-block friction problem on blackboard. 38 focused students writing in registers, natural classroom daylight."
                 caption="Batch PCM-11 in session (Kakadeo Hall 2, morning batch)"

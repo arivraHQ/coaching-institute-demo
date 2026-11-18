@@ -70,7 +70,7 @@ export function Navbar() {
 
           {/* Countdown Clock */}
           <div className="flex items-center gap-3 font-mono text-[11px] sm:text-xs">
-            <div className="flex items-center gap-1 text-surface/80 bg-surface/10 px-2 py-0.5 rounded-[4px]">
+            <div className="flex items-center gap-1 text-surface/80 bg-surface/10 px-2 py-0.5 rounded-[4px]" suppressHydrationWarning>
               <Clock className="w-3 h-3 text-highlighter" />
               <span>
                 {timeLeft.days}d : {String(timeLeft.hours).padStart(2, "0")}h :{" "}
