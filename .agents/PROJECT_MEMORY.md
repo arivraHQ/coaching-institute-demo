@@ -44,3 +44,11 @@
      - Images without alt: 0
      - Console Errors: 0
      - 8/8 Playwright tests passing with Exit Code 0 across Desktop and Mobile viewports.
+7. **Milestone 3 — SSR Hydration Error Diagnosis & Resolution**:
+   - **Root Cause**: In [Highlighter.tsx](file:///c:/Users/Lenovo/OneDrive/Desktop/SAMPLE/Coaching-demo/src/components/ui/Highlighter.tsx), [RedPenCircle.tsx](file:///c:/Users/Lenovo/OneDrive/Desktop/SAMPLE/Coaching-demo/src/components/ui/RedPenCircle.tsx), and [02-Hero.tsx](file:///c:/Users/Lenovo/OneDrive/Desktop/SAMPLE/Coaching-demo/src/components/sections/02-Hero.tsx), `useReducedMotion()` was read during initial SSR execution. On the server where `window.matchMedia` is unavailable, it evaluated to `null`/`false` (`opacity: 0.95`), whereas on the client with OS reduced-motion settings, it evaluated to `true` (`opacity: 1`), triggering a Next.js React hydration mismatch.
+   - **Fix Applied**:
+     1. In `Highlighter.tsx`, removed `useReducedMotion()` branching in `initial`. Replaced inline `opacity` with a static Tailwind class `opacity-95`, and kept `initial={{ scaleX: 0 }}` and `animate={{ scaleX: 1 }}` deterministic on both server and client.
+     2. In `RedPenCircle.tsx`, unified `initial={{ pathLength: 0 }}` so server and client markup match 100%.
+     3. In `02-Hero.tsx`, initialized `useState(94)` and `useState(38)` deterministically for SSR, then ran client-side count-up checks inside `useEffect` with `window.matchMedia` guards after hydration.
+     4. In `01-Navbar.tsx`, added `suppressHydrationWarning` on the countdown clock container to prevent client-server clock drift warnings.
+   - **Verification**: Dev server refreshed on port 3000, `npm run build` static generation verified (Exit Code 0), and Playwright test suite passed with 0 console errors and 0 hydration warnings.
