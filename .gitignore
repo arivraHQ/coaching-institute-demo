@@ -31,8 +31,18 @@ yarn-error.log*
 
 # Agent, Governance & Private AI metadata (Do NOT upload)
 GEMINI.md
+*gemini*.md
+AGENTS.md
 .agents/
+.gemini/
+*.agent*
 governance/
+lighthouse*.json
+.ag-kit-backups/
+graphify-out/
+.codex/
+__pycache__/
+*.pyc
 
 # IDE & OS
 .vscode/

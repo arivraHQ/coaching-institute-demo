@@ -1,5 +1,12 @@
 # Lakshya Academy — Kanpur (Coaching Institute Web Experience)
 
+> [!WARNING]
+> **⚠️ DEMO & SHOWCASE DISCLAIMER**  
+> This project is a fictional concept application developed strictly for **portfolio demonstration and technical showcase purposes**.  
+> - **Lakshya Academy** is a simulated educational coaching entity.  
+> - All telephone numbers, faculty profiles, student AIR ranks, physical addresses, and fee tables are **dummy/illustrative data**.  
+> - **DO NOT attempt to call these telephone numbers or visit this address for real admissions or scholarship tests.**
+
 <p align="center">
   <img src="public/logo.png" alt="Lakshya Academy Logo" width="120" height="120" />
 </p>
@@ -135,5 +142,5 @@ npm run build
 
 ## 📄 License & Attribution
 
-Designed and developed as an agency portfolio demonstration by [arivraHQ](https://github.com/arivraHQ).
-All rights reserved.
+**ARIVRA Demo** — A product by [Arivra Design Labs](https://arivra.com/).  
+Licensed under the [MIT License](LICENSE).

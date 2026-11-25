@@ -165,6 +165,30 @@ export function Footer() {
             {footer.legalDisclaimer}
           </div>
         </div>
+
+        {/* 4. Portfolio & Showcase Disclaimer + Arivra Design Labs Attribution */}
+        <div className="border-t border-surface/15 pt-6 text-center space-y-3">
+          <p className="text-[11px] font-body text-surface/70 max-w-4xl mx-auto leading-relaxed">
+            <strong className="text-highlighter">Notice &amp; Disclaimer:</strong> This website is an interactive concept application engineered solely for portfolio demonstration and showcase purposes. Lakshya Academy is a fictional entity. All contact details, telephone numbers, faculty profiles, student ranks, and fee schedules are simulated dummy data. Please do not contact these numbers for real coaching admissions or scholarship tests.
+          </p>
+          <div className="inline-flex flex-wrap items-center justify-center gap-2 px-4 py-1.5 rounded-[6px] bg-surface/5 border border-highlighter/35 text-xs text-surface">
+            <span className="font-mono font-bold tracking-wider uppercase text-[10px] text-highlighter">
+              ARIVRA Demo
+            </span>
+            <span className="text-surface/40">•</span>
+            <span className="text-surface/85">
+              A product by{" "}
+              <a
+                href="https://arivra.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-surface hover:text-highlighter underline underline-offset-4 transition-colors"
+              >
+                Arivra Design Labs
+              </a>
+            </span>
+          </div>
+        </div>
       </div>
     </footer>
   );
